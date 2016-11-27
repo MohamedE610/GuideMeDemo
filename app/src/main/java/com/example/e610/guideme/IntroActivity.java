@@ -55,6 +55,14 @@ public class IntroActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 radius=radiusText.getText().toString();
+                
+                 try{
+                    Double.valueOf(radius);
+                }catch (Exception e){
+                    radius="10000";
+                    MyAlertDialog myAlertDialog=new MyAlertDialog();
+                    myAlertDialog.showAlertDialog(IntroActivity.this,"Error","Please Enter Valid Number",false);
+                }
 
                 if(type.equals(""))
                     type="hospital|university|gas_station|train_station|school|shopping_mall|post_office|police";
